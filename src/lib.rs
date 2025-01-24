@@ -51,6 +51,17 @@ mod tests {
     }
 
     #[test]
+    fn test_immutable_string_vec() {
+        let collection = vec!["January", "February", "March"];
+        let wrapper = MyIterator {
+            slice: &collection[..],
+        };
+        for (index, elem) in wrapper.enumerate() {
+            assert_eq!(*elem, collection[index]);
+        }
+    }
+
+    #[test]
     fn test_mutable_vec() {
         let mut collection = vec![1, 2, 3, 4];
         let wrapper = MyMutableIterator {

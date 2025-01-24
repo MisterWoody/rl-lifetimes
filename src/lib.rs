@@ -32,7 +32,6 @@ impl<'iter, T> Iterator for MyMutableIterator<'iter, T> {
         let (first, rest) = slice.split_first_mut()?;
         self.slice = rest;
         Some(first)
-
     }
 }
 
@@ -59,7 +58,6 @@ mod tests {
         };
         for (_index, elem) in wrapper.enumerate() {
             *elem = *elem + 1;
-
         }
         assert_eq!(collection.get(0), Some(&2) );
     }
